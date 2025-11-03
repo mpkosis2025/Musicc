@@ -14,104 +14,107 @@
             color: white;
             min-height: 100vh;
             overflow-x: hidden;
+            /* Optimasi performa: kurangi efek blur untuk mobile */
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
         .container {
             text-align: center;
             background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(15px);
+            backdrop-filter: blur(10px); /* Kurangi blur untuk performa */
             border-radius: 25px;
-            padding: 45px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+            padding: 30px; /* Kurangi padding untuk mobile */
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3); /* Kurangi shadow */
             max-width: 600px;
             width: 90%;
-            margin: 50px auto;
-            animation: fadeIn 1.2s ease-in-out;
+            margin: 20px auto; /* Kurangi margin */
+            animation: fadeIn 0.8s ease-in-out; /* Kurangi durasi animasi */
         }
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(25px) scale(0.95); }
+            from { opacity: 0; transform: translateY(15px) scale(0.98); } /* Kurangi transform */
             to { opacity: 1; transform: translateY(0) scale(1); }
         }
         h1 {
-            font-size: 2.6em;
-            margin-bottom: 12px;
-            text-shadow: 0 3px 6px rgba(0, 0, 0, 0.6);
+            font-size: 2.2em; /* Kurangi ukuran untuk mobile */
+            margin-bottom: 10px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
             letter-spacing: 1px;
         }
         .subtitle {
-            font-size: 1.15em;
-            margin-bottom: 22px;
+            font-size: 1.1em;
+            margin-bottom: 15px;
             opacity: 0.85;
             font-weight: 600;
             letter-spacing: 0.5px;
         }
         p {
-            font-size: 1.05em;
-            margin-bottom: 32px;
+            font-size: 1em;
+            margin-bottom: 20px;
             opacity: 0.95;
-            line-height: 1.5;
+            line-height: 1.4;
         }
         .playlist-desc {
             background: rgba(255, 255, 255, 0.12);
-            border-radius: 18px;
-            padding: 22px;
-            margin-bottom: 32px;
-            box-shadow: 0 5px 18px rgba(0, 0, 0, 0.25);
+            border-radius: 15px;
+            padding: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
         .playlist-desc h2 {
-            font-size: 1.55em;
-            margin-bottom: 12px;
+            font-size: 1.4em;
+            margin-bottom: 10px;
             color: #ffeb3b;
-            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
         }
         .playlist-desc p {
             margin: 0;
-            font-size: 1.02em;
-            line-height: 1.4;
+            font-size: 1em;
+            line-height: 1.3;
         }
         .search-box {
             position: relative;
-            margin-bottom: 22px;
+            margin-bottom: 15px;
         }
         input[type="text"] {
             width: 100%;
-            padding: 16px 22px;
-            font-size: 18px;
+            padding: 12px 18px;
+            font-size: 16px;
             border: none;
-            border-radius: 50px;
+            border-radius: 40px;
             outline: none;
             background: rgba(255, 255, 255, 0.95);
             color: #333;
-            box-shadow: 0 5px 18px rgba(0, 0, 0, 0.25);
-            transition: all 0.4s ease;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease; /* Kurangi durasi transisi */
             font-weight: 500;
         }
         input[type="text"]:focus {
             background: white;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
-            transform: scale(1.03);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transform: scale(1.02);
         }
         button {
-            padding: 16px 32px;
-            font-size: 18px;
+            padding: 12px 24px;
+            font-size: 16px;
             background: linear-gradient(45deg, #ff6b6b, #ee5a24, #ff8e53);
             color: white;
             border: none;
-            border-radius: 50px;
+            border-radius: 40px;
             cursor: pointer;
-            box-shadow: 0 5px 18px rgba(0, 0, 0, 0.35);
-            transition: all 0.4s ease;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
             font-weight: 600;
             letter-spacing: 0.5px;
         }
         button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.45);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
         }
         button:active {
-            transform: translateY(-1px);
+            transform: translateY(0);
         }
         button::before {
             content: '';
@@ -120,47 +123,65 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-            transition: left 0.6s;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.4s; /* Kurangi durasi */
         }
         button:hover::before {
             left: 100%;
         }
         .icon {
-            margin-right: 10px;
+            margin-right: 8px;
         }
         .form-section {
             background: rgba(255, 255, 255, 0.12);
-            border-radius: 18px;
-            padding: 22px;
-            margin-top: 40px;
-            box-shadow: 0 5px 18px rgba(0, 0, 0, 0.25);
+            border-radius: 15px;
+            padding: 15px;
+            margin-top: 30px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
         .form-section h2 {
-            font-size: 1.55em;
-            margin-bottom: 12px;
+            font-size: 1.4em;
+            margin-bottom: 10px;
             color: #ffeb3b;
-            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
         }
         .form-section p {
-            margin: 0 0 20px 0;
-            font-size: 1.02em;
-            line-height: 1.4;
+            margin: 0 0 15px 0;
+            font-size: 1em;
+            line-height: 1.3;
         }
         iframe {
             width: 100%;
-            height: 682px;
+            height: 780px; /* Update height sesuai request */
             border: none;
-            border-radius: 18px;
-            box-shadow: 0 5px 18px rgba(0, 0, 0, 0.25);
+            border-radius: 15px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+            /* Optimasi: tambahkan loading lazy untuk performa */
+            loading: lazy;
+        }
+        .back-btn {
+            display: none; /* Awalnya hidden, muncul setelah pencarian */
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 40px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+        .back-btn:hover {
+            background: #45a049;
+            transform: translateY(-2px);
         }
         @media (max-width: 600px) {
-            h1 { font-size: 2.1em; }
-            .container { padding: 25px; margin: 20px auto; }
-            input[type="text"] { font-size: 16px; }
-            button { font-size: 16px; }
-            iframe { height: 400px; }
+            h1 { font-size: 1.8em; }
+            .container { padding: 20px; margin: 10px auto; }
+            input[type="text"] { font-size: 14px; }
+            button { font-size: 14px; }
+            iframe { height: 500px; } /* Kurangi height di mobile untuk performa */
         }
     </style>
 </head>
@@ -180,10 +201,12 @@
         </div>
         <button onclick="searchMusic()"><i class="fas fa-search icon"></i>Cari Musik</button>
 
+        <button class="back-btn" id="backBtn" onclick="goBack()"><i class="fas fa-arrow-left icon"></i>Kembali ke Halaman</button>
+
         <div class="form-section">
             <h2><i class="fas fa-share icon"></i>Kirim Link Lagu Kesukaanmu Disini</h2>
             <p>Bagikan link lagu favoritmu melalui form ini. Kami akan mengumpulkan dan mungkin memasukkannya ke playlist bersama!</p>
-            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdJkp1pa-Gte1ErV_LKcp3cshkfY4B6iUzPheSSJd_cTAcEIQ/viewform?embedded=true" width="640" height="682" frameborder="0" marginheight="0" marginwidth="0">Memuat…</iframe>
+            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdJkp1pa-Gte1ErV_LKcp3cshkfY4B6iUzPheSSJd_cTAcEIQ/viewform?embedded=true" width="640" height="780" frameborder="0" marginheight="0" marginwidth="0">Memuat…</iframe>
         </div>
     </div>
 
@@ -192,17 +215,30 @@
             const query = document.getElementById('searchInput').value.trim();
             if (query) {
                 const url = `https://music.youtube.com/search?q=${encodeURIComponent(query)}`;
-                window.open(url, '_blank');
-                // Tambahkan animasi loading sederhana (opsional)
+                window.open(url, '_blank'); // Buka di tab baru
+                // Tampilkan tombol kembali setelah pencarian
+                document.getElementById('backBtn').style.display = 'inline-block';
+                // Animasi loading singkat
                 const button = document.querySelector('button');
                 button.innerHTML = '<i class="fas fa-spinner fa-spin icon"></i>Mencari...';
                 setTimeout(() => {
                     button.innerHTML = '<i class="fas fa-search icon"></i>Cari Musik';
-                }, 1000);
+                }, 800); // Kurangi delay
             } else {
                 alert('Masukkan kata kunci pencarian terlebih dahulu!');
             }
         }
+
+        function goBack() {
+            // Fungsi untuk kembali ke halaman utama (reload jika perlu)
+            window.location.reload(); // Reload halaman untuk kembali
+        }
+
+        // Optimasi: Deteksi ketika tab kembali aktif (setelah keluar dari YouTube)
+        window.addEventListener('focus', function() {
+            // Jika tab kembali aktif, tampilkan tombol kembali
+            document.getElementById('backBtn').style.display = 'inline-block';
+        });
     </script>
 </body>
 </html>
