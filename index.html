@@ -14,28 +14,27 @@
             color: white;
             min-height: 100vh;
             overflow-x: hidden;
-            /* Optimasi performa: kurangi efek blur untuk mobile */
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
         .container {
             text-align: center;
             background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px); /* Kurangi blur untuk performa */
+            backdrop-filter: blur(10px);
             border-radius: 25px;
-            padding: 30px; /* Kurangi padding untuk mobile */
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3); /* Kurangi shadow */
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
             max-width: 600px;
             width: 90%;
-            margin: 20px auto; /* Kurangi margin */
-            animation: fadeIn 0.8s ease-in-out; /* Kurangi durasi animasi */
+            margin: 20px auto;
+            animation: fadeIn 0.8s ease-in-out;
         }
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(15px) scale(0.98); } /* Kurangi transform */
+            from { opacity: 0; transform: translateY(15px) scale(0.98); }
             to { opacity: 1; transform: translateY(0) scale(1); }
         }
         h1 {
-            font-size: 2.2em; /* Kurangi ukuran untuk mobile */
+            font-size: 2.2em;
             margin-bottom: 10px;
             text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
             letter-spacing: 1px;
@@ -86,7 +85,7 @@
             background: rgba(255, 255, 255, 0.95);
             color: #333;
             box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
-            transition: all 0.3s ease; /* Kurangi durasi transisi */
+            transition: all 0.3s ease;
             font-weight: 500;
         }
         input[type="text"]:focus {
@@ -124,7 +123,7 @@
             width: 100%;
             height: 100%;
             background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: left 0.4s; /* Kurangi durasi */
+            transition: left 0.4s;
         }
         button:hover::before {
             left: 100%;
@@ -153,15 +152,14 @@
         }
         iframe {
             width: 100%;
-            height: 780px; /* Update height sesuai request */
+            height: 780px;
             border: none;
             border-radius: 15px;
             box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
-            /* Optimasi: tambahkan loading lazy untuk performa */
             loading: lazy;
         }
         .back-btn {
-            display: none; /* Awalnya hidden, muncul setelah pencarian */
+            display: none;
             margin-top: 20px;
             padding: 10px 20px;
             background: #4CAF50;
@@ -181,19 +179,19 @@
             .container { padding: 20px; margin: 10px auto; }
             input[type="text"] { font-size: 14px; }
             button { font-size: 14px; }
-            iframe { height: 500px; } /* Kurangi height di mobile untuk performa */
+            iframe { height: 500px; }
         }
     </style>
 </head>
 <body>
     <div class="container">
         <h1><i class="fas fa-music icon"></i>Music OSIS SMAN16 PADANG</h1>
-        <div class="subtitle">Pencarian Musik Eksklusif untuk Siswa Berprestasi</div>
-        <p>Temukan dan putar lagu favoritmu di YouTube Music dengan pencarian cepat dan mudah!</p>
+        <div class="subtitle">Pencarian Musik Eksklusif untuk Siswa</div>
+        <p>Cari dan putar lagu favorit di YouTube Music!</p>
         
         <div class="playlist-desc">
             <h2><i class="fas fa-play-circle icon"></i>Putar Playlist Kesukaanmu</h2>
-            <p>Jelajahi dan putar playlist favoritmu langsung dari YouTube Music. Cari playlist populer, buat yang baru, atau nikmati koleksi lagu terbaik untuk suasana hati apa saja!</p>
+            <p>Jelajahi playlist populer atau buat yang baru.</p>
         </div>
         
         <div class="search-box">
@@ -205,7 +203,7 @@
 
         <div class="form-section">
             <h2><i class="fas fa-share icon"></i>Kirim Link Lagu Kesukaanmu Disini</h2>
-            <p>Bagikan link lagu favoritmu melalui form ini. Kami akan mengumpulkan dan mungkin memasukkannya ke playlist bersama!</p>
+            <p>Bagikan link lagu favoritmu via form.</p>
             <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdJkp1pa-Gte1ErV_LKcp3cshkfY4B6iUzPheSSJd_cTAcEIQ/viewform?embedded=true" width="640" height="780" frameborder="0" marginheight="0" marginwidth="0">Memuat…</iframe>
         </div>
     </div>
@@ -215,28 +213,23 @@
             const query = document.getElementById('searchInput').value.trim();
             if (query) {
                 const url = `https://music.youtube.com/search?q=${encodeURIComponent(query)}`;
-                window.open(url, '_blank'); // Buka di tab baru
-                // Tampilkan tombol kembali setelah pencarian
+                window.open(url, '_blank');
                 document.getElementById('backBtn').style.display = 'inline-block';
-                // Animasi loading singkat
                 const button = document.querySelector('button');
                 button.innerHTML = '<i class="fas fa-spinner fa-spin icon"></i>Mencari...';
                 setTimeout(() => {
                     button.innerHTML = '<i class="fas fa-search icon"></i>Cari Musik';
-                }, 800); // Kurangi delay
+                }, 800);
             } else {
                 alert('Masukkan kata kunci pencarian terlebih dahulu!');
             }
         }
 
         function goBack() {
-            // Fungsi untuk kembali ke halaman utama (reload jika perlu)
-            window.location.reload(); // Reload halaman untuk kembali
+            window.location.reload();
         }
 
-        // Optimasi: Deteksi ketika tab kembali aktif (setelah keluar dari YouTube)
         window.addEventListener('focus', function() {
-            // Jika tab kembali aktif, tampilkan tombol kembali
             document.getElementById('backBtn').style.display = 'inline-block';
         });
     </script>
