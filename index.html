@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music OSIS SMAN16 PADANG</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 25%, #3e5c76 50%, #4a6fa5 75%, #5a7fb8 100%);
+            color: white;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        .container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            border-radius: 25px;
+            padding: 45px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+            max-width: 600px;
+            width: 90%;
+            margin: 50px auto;
+            animation: fadeIn 1.2s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(25px) scale(0.95); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        h1 {
+            font-size: 2.6em;
+            margin-bottom: 12px;
+            text-shadow: 0 3px 6px rgba(0, 0, 0, 0.6);
+            letter-spacing: 1px;
+        }
+        .subtitle {
+            font-size: 1.15em;
+            margin-bottom: 22px;
+            opacity: 0.85;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+        p {
+            font-size: 1.05em;
+            margin-bottom: 32px;
+            opacity: 0.95;
+            line-height: 1.5;
+        }
+        .playlist-desc {
+            background: rgba(255, 255, 255, 0.12);
+            border-radius: 18px;
+            padding: 22px;
+            margin-bottom: 32px;
+            box-shadow: 0 5px 18px rgba(0, 0, 0, 0.25);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .playlist-desc h2 {
+            font-size: 1.55em;
+            margin-bottom: 12px;
+            color: #ffeb3b;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+        }
+        .playlist-desc p {
+            margin: 0;
+            font-size: 1.02em;
+            line-height: 1.4;
+        }
+        .search-box {
+            position: relative;
+            margin-bottom: 22px;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 16px 22px;
+            font-size: 18px;
+            border: none;
+            border-radius: 50px;
+            outline: none;
+            background: rgba(255, 255, 255, 0.95);
+            color: #333;
+            box-shadow: 0 5px 18px rgba(0, 0, 0, 0.25);
+            transition: all 0.4s ease;
+            font-weight: 500;
+        }
+        input[type="text"]:focus {
+            background: white;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
+            transform: scale(1.03);
+        }
+        button {
+            padding: 16px 32px;
+            font-size: 18px;
+            background: linear-gradient(45deg, #ff6b6b, #ee5a24, #ff8e53);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 5px 18px rgba(0, 0, 0, 0.35);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+        button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.45);
+        }
+        button:active {
+            transform: translateY(-1px);
+        }
+        button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.6s;
+        }
+        button:hover::before {
+            left: 100%;
+        }
+        .icon {
+            margin-right: 10px;
+        }
+        .form-section {
+            background: rgba(255, 255, 255, 0.12);
+            border-radius: 18px;
+            padding: 22px;
+            margin-top: 40px;
+            box-shadow: 0 5px 18px rgba(0, 0, 0, 0.25);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .form-section h2 {
+            font-size: 1.55em;
+            margin-bottom: 12px;
+            color: #ffeb3b;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+        }
+        .form-section p {
+            margin: 0 0 20px 0;
+            font-size: 1.02em;
+            line-height: 1.4;
+        }
+        iframe {
+            width: 100%;
+            height: 682px;
+            border: none;
+            border-radius: 18px;
+            box-shadow: 0 5px 18px rgba(0, 0, 0, 0.25);
+        }
+        @media (max-width: 600px) {
+            h1 { font-size: 2.1em; }
+            .container { padding: 25px; margin: 20px auto; }
+            input[type="text"] { font-size: 16px; }
+            button { font-size: 16px; }
+            iframe { height: 400px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1><i class="fas fa-music icon"></i>Music OSIS SMAN16 PADANG</h1>
+        <div class="subtitle">Pencarian Musik Eksklusif untuk Siswa Berprestasi</div>
+        <p>Temukan dan putar lagu favoritmu di YouTube Music dengan pencarian cepat dan mudah!</p>
+        
+        <div class="playlist-desc">
+            <h2><i class="fas fa-play-circle icon"></i>Putar Playlist Kesukaanmu</h2>
+            <p>Jelajahi dan putar playlist favoritmu langsung dari YouTube Music. Cari playlist populer, buat yang baru, atau nikmati koleksi lagu terbaik untuk suasana hati apa saja!</p>
+        </div>
+        
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Ketik nama lagu, artis, atau album...">
+        </div>
+        <button onclick="searchMusic()"><i class="fas fa-search icon"></i>Cari Musik</button>
+
+        <div class="form-section">
+            <h2><i class="fas fa-share icon"></i>Kirim Link Lagu Kesukaanmu Disini</h2>
+            <p>Bagikan link lagu favoritmu melalui form ini. Kami akan mengumpulkan dan mungkin memasukkannya ke playlist bersama!</p>
+            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdJkp1pa-Gte1ErV_LKcp3cshkfY4B6iUzPheSSJd_cTAcEIQ/viewform?embedded=true" width="640" height="682" frameborder="0" marginheight="0" marginwidth="0">Memuat…</iframe>
+        </div>
+    </div>
+
+    <script>
+        function searchMusic() {
+            const query = document.getElementById('searchInput').value.trim();
+            if (query) {
+                const url = `https://music.youtube.com/search?q=${encodeURIComponent(query)}`;
+                window.open(url, '_blank');
+                // Tambahkan animasi loading sederhana (opsional)
+                const button = document.querySelector('button');
+                button.innerHTML = '<i class="fas fa-spinner fa-spin icon"></i>Mencari...';
+                setTimeout(() => {
+                    button.innerHTML = '<i class="fas fa-search icon"></i>Cari Musik';
+                }, 1000);
+            } else {
+                alert('Masukkan kata kunci pencarian terlebih dahulu!');
+            }
+        }
+    </script>
+</body>
+</html>
